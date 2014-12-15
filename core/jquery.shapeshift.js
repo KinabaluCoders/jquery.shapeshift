@@ -224,7 +224,9 @@
         switch (options.align) {
           case "center":
             grid_width = (columns * col_width) - gutter_x;
-            return globals.child_offset += (inner_width - grid_width) / 2;
+            globals.child_offset += (inner_width - grid_width) / 2;
+            if(globals.child_offset < 0)globals.child_offset = 0;
+            return globals.child_offset;
           case "right":
             grid_width = (columns * col_width) - gutter_x;
             return globals.child_offset += inner_width - grid_width;
